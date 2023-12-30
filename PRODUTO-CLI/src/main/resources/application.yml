@@ -1,0 +1,24 @@
+server:
+  port: 8092
+
+spring:
+  application:
+    name: PRODUTO-CLIENT
+  data:
+    mongodb:
+      host: localhost
+      port: 27017
+      database: microsservicos_produtos # Nome do banco de dados que você deseja usar no MongoDB
+      auto-index-creation: true # Cria??o autom?tica de ?ndices
+      auto-initialize: true # Inicializa??o autom?tica do banco de dados
+
+eureka:
+  client:
+    serviceUrl:
+      defaultZone: http://localhost:8090/eureka/
+  instance:
+    instance-id: ${spring.application.name}:${vcap.application.instance_id:${spring.application.instance_id:${random.value}}}
+
+
+
+
